@@ -1,0 +1,20 @@
+body {
+  overflow: hidden;
+}
+
+.cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  opacity: 1;
+  -webkit-transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+  -ms-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
+}
+
+.fadeOut-start {
+  opacity: 0;
+}

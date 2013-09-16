@@ -1,0 +1,19 @@
+{
+  "name": "uefa-digital-video-library",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "soap": "*",
+    "underscore": "*"
+  },
+  "subdomain": "uefa-digital-video-library",
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
