@@ -33,9 +33,10 @@ app.controller('AppCtrl',
 
 /* Home controller, display greeting and handle logout */
 }]).controller('HomeCtrl',
-['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+['$rootScope', '$scope', '$location', 'Auth', 'API', function($rootScope, $scope, $location, Auth, API) {
 
   $scope.greeting = 'Hello ' + $rootScope.user;
+  $scope.showlog = false;
 
   $scope.logout = function() {
     Auth.logout(function() {
@@ -44,5 +45,15 @@ app.controller('AppCtrl',
       $rootScope.error = 'Failed to logout';
     });
   };
+
+  $scope.search = function() {
+    API.search($scope.query, function (data) {
+      $scope.log = $scope.query;
+      $scope.results = data.results;
+      $scope.showlog = true;
+    }, function(){
+      $rootScope.error = 'Search error';
+    });
+  }
 
 }]);

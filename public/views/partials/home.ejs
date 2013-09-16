@@ -1,3 +1,17 @@
 <h1>Home view</h1>
 <p>{{greeting}}</p>
+
+<form data-ng-submit='search()'>
+	<div>
+		<input type="text" name="query" data-ng-model="query">
+		<button type='submit'>Search</button>
+	</div>
+</form>
+
+<p data-ng-show='showlog'>You are searching for {{log}}</p>
+<ul data-ng-repeat='result in results'>
+	<li>{{result}}</li>
+</ul>
+
+
 <a href='#' ng-click='logout()'>Log out</a>

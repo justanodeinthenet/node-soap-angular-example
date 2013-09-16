@@ -12,11 +12,6 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
       templateUrl:    '/partials/home',
       controller:     'HomeCtrl'
     });
-  $routeProvider.when('/search/:query',
-    {
-      templateUrl:    '/partials/search',
-      controller:     'SearchCtrl'
-    });
   $routeProvider.when('/login',
     {
       templateUrl:    '/partials/login',

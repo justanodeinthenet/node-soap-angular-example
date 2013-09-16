@@ -28,4 +28,13 @@ app.factory('Auth', function($http, $rootScope, $cookieStore){
       }).error(error);
     }
   };
+}).factory('API', function($http){
+
+  return {
+    search: function(query, success, error) {
+      $http.get('/api/search/' + query).success(function(data){
+        success(data);
+      }).error(error);
+    }
+  };
 });
