@@ -25,9 +25,9 @@ var routes = [
     middleware: [AuthCtrl.logout]
   },
   {
-    path      : '/api/search/query/:query',
+    path      : '/api/search/:query',
     httpMethod: 'GET',
-    middleware: [SearchCtrl.byQuery]
+    middleware: [SearchCtrl.search]
   },
   {
     path      : '/*',

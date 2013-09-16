@@ -6,9 +6,9 @@ var soap    = require('soap'),
 
 
 module.exports = {
-  byQuery: function (req, res) {
+  search: function (req, res) {
     var args = {
-      query: req.param.query
+      query: req.params.query
     };
 
     /* SOAP call example */
@@ -17,5 +17,9 @@ module.exports = {
     //     /* do your stuff here */
     //   });
     // });
+    res.json(200, {
+      query: req.params.query,
+      result: "Results related to " + req.params.query
+    });
   }
 };
