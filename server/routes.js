@@ -1,15 +1,13 @@
-/*
-  * Routes
-  *
-*/
+/* Routes */
 
-
+/* dependencies */
 var   _         = require('underscore'),
     path        = require('path'),
     passport    = require('passport'),
     AuthCtrl    = require('./api/auth'),
     SearchCtrl  = require('./api/search');
 
+/* config */
 var routes = [
   {
     path      : '/partials/*',
@@ -38,6 +36,7 @@ var routes = [
   }
 ];
 
+/* assign methods and middleware functions */
 module.exports = function(app) {
   _.each(routes, function(route) {
     var args = _.flatten([route.path, route.middleware]);
@@ -62,25 +61,18 @@ module.exports = function(app) {
   });
 };
 
+/* serving templates */
 function getView(req, res) {
   var requestedView = path.join('./', req.url);
   res.render(requestedView);
 }
 
+/* check if user is logged in on every route change */
 function loginRequired(req, res) {
   var user = '';
   if (req.user) {
     user = req.user;
   }
-
   res.cookie('user', JSON.stringify(user));
   res.render('index');
-}
-
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    return res.send(401);
-  }
 }

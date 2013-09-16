@@ -1,5 +1,5 @@
 {
-  "name": "uefa-digital-video-library",
+  "name": "node-soap-angular-example",
   "version": "0.0.1",
   "dependencies": {
     "express": "*",
@@ -9,7 +9,7 @@
     "soap": "*",
     "underscore": "*"
   },
-  "subdomain": "uefa-digital-video-library",
+  "subdomain": "node-soap-angular-example",
   "scripts": {
     "start": "server.js"
   },

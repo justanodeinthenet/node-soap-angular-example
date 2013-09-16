@@ -1,10 +1,7 @@
-/*
-  * Server config
-  *
-*/
+/* Server config */
 
 
-// dependencies
+/* dependencies */
 var   express = require('express'),
      http     = require('http'),
      passport = require('passport'),
@@ -13,7 +10,7 @@ var   express = require('express'),
      app      = express(),
      server   = http.createServer(app);
 
-// config
+/* config */
 app.set('port', process.env.PORT || 9099);
 app.set('views', __dirname + '/public/views');
 app.set('view engine', 'ejs');
@@ -29,7 +26,7 @@ passport.use(User.localStrategy);
 passport.serializeUser(User.serializeUser);
 passport.deserializeUser(User.deserializeUser);
 
-// routes
+/* routes config */
 require('./server/routes.js')(app);
 
 server.listen(app.get('port'), function(){

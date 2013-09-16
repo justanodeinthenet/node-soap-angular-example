@@ -1,4 +1,4 @@
-/* Auth */
+/* Auth API */
 
 var passport      = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -6,6 +6,7 @@ var passport      = require('passport'),
     soapUrl       = 'http://endpoint url';
 
 module.exports = {
+  /* Defining Passport documentation */
   localStrategy: new LocalStrategy(
     function(username, password, done) {
       var user;
@@ -21,8 +22,8 @@ module.exports = {
       //   });
       // });
 
-      /* fake validation */
-      if (username === "user" && password === "password") {
+      /* fake auth */
+      if (username === 'user' && password === 'password') {
         user = username;
         return done(null, user);
       } else {
@@ -31,6 +32,10 @@ module.exports = {
     }
   ),
 
+  /*  From documentation:
+    * Each subsequent request will not contain credentials, but rather the unique cookie that identifies the session.
+    * In order to support login sessions, Passport will serialize and deserialize user instances to and from the session.
+  */
   serializeUser: function(user, done) {
     done(null, user);
   },
@@ -43,6 +48,7 @@ module.exports = {
     }
   },
 
+  /* Handle login and send serialized user back to client */
   login: function(req, res, next) {
     passport.authenticate('local', function(err, user) {
       if(err)     { return next(err); }
@@ -56,6 +62,7 @@ module.exports = {
     })(req, res, next);
   },
 
+  /* Destroy session */
   logout: function(req, res) {
     req.logout();
     res.send(200);

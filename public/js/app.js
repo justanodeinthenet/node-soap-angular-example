@@ -4,6 +4,7 @@
 
 var app = angular.module('demoApp' , ['ngCookies']);
 
+/* routes config */
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
 
   $routeProvider.when('/',
@@ -27,6 +28,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
     });
   $routeProvider.otherwise({redirectTo:'/404'});
 
+  /* if response status code is 401 - send back to login page */
   var interceptor = ['$location', '$q', function($location, $q) {
     function success(response) {
       return response;
@@ -36,8 +38,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
       if(response.status === 401) {
           $location.path('/login');
           return $q.reject(response);
-      }
-      else {
+      } else {
           return $q.reject(response);
       }
     }
@@ -52,7 +53,8 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
 
 }]).run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
 
-  $rootScope.$on("$routeChangeStart", function (event, next, current) {
+  /* perform auth check on every route change */
+  $rootScope.$on('$routeChangeStart', function (event, next, current) {
     $rootScope.error = null;
     $rootScope.loggedIn = true;
 

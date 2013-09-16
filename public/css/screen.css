@@ -1,3 +1,4 @@
+/* Hide the page until it is fully loaded */
 body {
   overflow: hidden;
 }

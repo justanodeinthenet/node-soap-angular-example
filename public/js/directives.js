@@ -1,6 +1,3 @@
-/*
-  * Directives
-  *
-*/
+/* Directives */
 
 'use strict';

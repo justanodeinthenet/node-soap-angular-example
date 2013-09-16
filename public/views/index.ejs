@@ -5,15 +5,15 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     <title></title>
     <meta name='viewport' content='width=device-width'>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/screen.css">
+    <link rel='icon' href='img/favicon.ico' type='image/x-icon'>
+    <link rel='stylesheet' href='/css/screen.css'>
   </head>
   <body data-ng-controller='AppCtrl'>
-    <div class='cover' data-ng-hide="appInitialized", data-ng-animate="{ hide: 'fadeOut' }"></div>
+    <div class='cover' data-ng-hide='appInitialized', data-ng-animate='{ hide: "fadeOut" }'></div>
     <h1>{{title}}</h1>
-    <div data-ng-show="loggedIn">
+    <div data-ng-show='loggedIn'>
       <!-- available for authenticated users only -->
-      <p>Hidden content</p>
+      <p>{{hidden}}</p>
     </div>
 
     <div class='container'>

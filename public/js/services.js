@@ -1,9 +1,8 @@
-/*
-  * Services
-*/
+/* Services */
 
 'use strict';
 
+/* Auth factory: post login/logout to the server and check if we have a user stored in cookies */
 app.factory('Auth', function($http, $rootScope, $cookieStore){
 
   $rootScope.user = $cookieStore.get('user') || {};
