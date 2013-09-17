@@ -31,8 +31,8 @@ app.factory('Auth', function($http, $rootScope, $cookieStore){
 }).factory('API', function($http){
 
   return {
-    search: function(query, success, error) {
-      $http.get('/api/search/' + query).success(function(data){
+    getw: function(query, success, error) {
+      $http.get('/api/get/').success(function(data){
         success(data);
       }).error(error);
     }

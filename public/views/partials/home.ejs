@@ -1,17 +1,11 @@
 <h1>Home view</h1>
 <p>{{greeting}}</p>
 
-<form data-ng-submit='search()'>
-	<div>
-		<input type="text" name="query" data-ng-model="query">
-		<button type='submit'>Search</button>
-	</div>
-</form>
+<a href='#' data-ng-click='get()'>Fetch data from SOAP WSDL</a>
+<a href='#' ng-click='logout()'>Log out</a>
 
-<p data-ng-show='showlog'>You are searching for {{log}}</p>
+<p class='blink' data-ng-show='showlog'>Loading...</p>
+
 <ul data-ng-repeat='result in results'>
 	<li>{{result}}</li>
 </ul>
-
-
-<a href='#' ng-click='logout()'>Log out</a>

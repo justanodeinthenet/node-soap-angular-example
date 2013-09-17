@@ -31,7 +31,7 @@ app.controller('AppCtrl',
     });
   };
 
-/* Home controller, display greeting and handle logout */
+/* Home controller, display greeting, handle logout and get data from SOAP endpoint */
 }]).controller('HomeCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', 'API', function($rootScope, $scope, $location, Auth, API) {
 
@@ -46,11 +46,11 @@ app.controller('AppCtrl',
     });
   };
 
-  $scope.search = function() {
-    API.search($scope.query, function (data) {
-      $scope.log = $scope.query;
+  $scope.get = function() {
+    $scope.showlog = true;
+    API.get($scope.query, function (data) {
       $scope.results = data.results;
-      $scope.showlog = true;
+      $scope.showlog = false;
     }, function(){
       $rootScope.error = 'Search error';
     });
