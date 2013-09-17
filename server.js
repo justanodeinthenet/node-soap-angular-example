@@ -11,7 +11,7 @@ var   express = require('express'),
      server   = http.createServer(app);
 
 /* config */
-app.set('port', process.env.PORT || 9099);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/public/views');
 app.set('view engine', 'ejs');
 app.use(express.logger('dev'));
