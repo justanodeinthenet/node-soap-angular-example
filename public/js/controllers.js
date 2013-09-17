@@ -2,14 +2,14 @@
 
 'use strict';
 
-/* Global app controller */
+/* Global app controller, assigning some values that will be available globally */
 app.controller('AppCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
 
   $scope.title = 'Site title';
   $scope.hidden = 'Hidden content';
 
-/* Login view controller, handle login and display the hint */
+/* Login view controller: handle login and display the hint */
 }]).controller('LoginCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
 
@@ -31,7 +31,7 @@ app.controller('AppCtrl',
     });
   };
 
-/* Home controller, display greeting, handle logout and get data from SOAP endpoint */
+/* Home controller: display greeting, handle logout and get data from SOAP endpoint */
 }]).controller('HomeCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', 'API', function($rootScope, $scope, $location, Auth, API) {
 
